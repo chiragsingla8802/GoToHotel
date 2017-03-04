@@ -12,6 +12,7 @@
 		<javaee.version>7.0</javaee.version>
 	</properties>
 	<dependencies>
+
 		<!--Adding dependency for JUNIT Testing -->
 		<dependency>
 			<groupId>junit</groupId>
@@ -19,18 +20,27 @@
 			<version>3.8.1</version>
 			<scope>test</scope>
 		</dependency>
+
 		<!--Adding dependency for spring framework -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
+
 		<!--Adding dependency for javaee -->
 		<dependency>
 			<groupId>javax</groupId>
 			<artifactId>javaee-api</artifactId>
 			<version>${javaee.version}</version>
 			<scope>provided</scope>
+		</dependency>
+
+		<!--Adding dependency for jstl -->
+		<dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
 		</dependency>
 
 	</dependencies>
