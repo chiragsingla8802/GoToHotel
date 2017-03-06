@@ -12,6 +12,7 @@
 	
 	<!--Scanning base package for all controlling operations -->
 	<context:component-scan base-package="com.niit.gotoHotel.controller" />
+	<context:component-scan base-package="com.niit.gotoHotelBackend" />
 	
 	<!--Loading static resources -->
 	<mvc:annotation-driven />
