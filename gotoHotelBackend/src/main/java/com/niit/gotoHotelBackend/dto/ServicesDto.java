@@ -1,13 +1,19 @@
 package com.niit.gotoHotelBackend.dto;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 
+import org.springframework.web.multipart.MultipartFile;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
-public class ServicesDto {
+public class ServicesDto implements Serializable {
 
 	/*
 	 * getter and setter methods for private fields
@@ -52,9 +58,20 @@ public class ServicesDto {
 		this.description = description;
 	}
 	
+	@Transient
+	@JsonIgnore
+	MultipartFile file;
+	public MultipartFile getFile() {
+		return file;
+	}
+	public void setFile(MultipartFile file) {
+		this.file = file;
+	}
+	
 	/*
 	 * private fields
 	 */
+	
 	@Column(name="ID")
 	private int category_id;
 	@Column(name="PRODUCT-ID")

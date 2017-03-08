@@ -100,6 +100,7 @@
 	<c:if test="${userClickAdmin == true}">
 		<%@ include file="shared/adminAddProduct.jsp"%>
 	</c:if>
+	
 
 	<!-- product description content part -->
 	<c:if test="${userClickServices == true}">

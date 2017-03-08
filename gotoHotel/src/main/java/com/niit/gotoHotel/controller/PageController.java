@@ -1,5 +1,7 @@
 package com.niit.gotoHotel.controller;
 
+import javax.swing.JOptionPane;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -90,11 +92,12 @@ public class PageController {
 		@RequestMapping(value = "/admin")
 		public ModelAndView admin() {
 			ModelAndView mv = new ModelAndView("index");
+			JOptionPane.showMessageDialog(null, "coming");
 			mv.addObject("title", "Admin");
 			mv.addObject("userClickAdmin", true);
 			return mv;
-		}
-*/
+		}*/
+
 	
 	// mapping for show product page
 	@RequestMapping(value = "/showProduct/{category_id}")
