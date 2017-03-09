@@ -11,11 +11,11 @@ public class CategoryDto {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	public int getCategory_id() {
-		return category_id;
+	public int getId() {
+		return id;
 	}
-	public void setCategory_id(int category_id) {
-		this.category_id = category_id;
+	public void setId(int id) {
+		this.id = id;
 	}
 	public String getName() {
 		return name;
@@ -23,11 +23,11 @@ public class CategoryDto {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getProduct_id() {
-		return product_id;
+	public int getPId() {
+		return pId;
 	}
-	public void setProduct_id(int product_id) {
-		this.product_id = product_id;
+	public void setPId(int pId) {
+		this.pId = pId;
 	}
 	public double getPrice() {
 		return price;
@@ -46,7 +46,7 @@ public class CategoryDto {
 	
 	@Override
 	public String toString() {
-		return "CategoryDto [category_id=" + category_id + ", name=" + name + ", product_id=" + product_id + ", price="
+		return "CategoryDto [id=" + id + ", name=" + name + ", pId=" + pId + ", price="
 				+ price + ", active=" + active + "]";
 	}
 
@@ -56,10 +56,10 @@ public class CategoryDto {
 	 * private static fields
 	 * */
 	@Column(name="ID")
-	private int category_id;
+	private int id;
 	private String name;
     @Column(name="PRODUCT-ID")
-	private int product_id;
+	private int pId;
     private double price;
 	private boolean active=true;
 	

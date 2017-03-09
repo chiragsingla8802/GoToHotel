@@ -1,6 +1,8 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!-- Add Modal -->
-<form:form method="POST" modelAttribute="service"
-	class="form-horizontal" action="/admin/save/services">
+<form:form method="POST" modelAttribute="servicesDto" enctype="multipart/form-data" class="form-horizontal" action="${contextRoot}/admin/save/services">
 
 	<div class="modal fade" id="updatemodal" role="dialog">
 		<div class="modal-dialog">
@@ -13,46 +15,64 @@
 				</div>
 				<div class="modal-body">
 					<div class="form-group">
-						<label for="CategoryID">Category Id:</label>
-						<form:input type="text" path="category_id" value="${s }" class="form-control" id="CategoryID" />
+						<label for="id">Category Id:</label>
+						<form:input type="text" path="id"  class="form-control" id="id" />
 						<div class="has-error">
-							<form:errors path="category_id" class="help-inline" />
+							<form:errors path="id" class="help-inline" />
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="ProductID">Product Id:</label>
-						<form:input type="text" path="product_id" class="form-control" id="ProductID" />
+						<label for="pId">Product Id:</label>
+						<form:input type="text" path="pid" class="form-control" id="pId" />
 						<div class="has-error">
-							<form:errors path="product_id" class="help-inline" />
+							<form:errors path="pid" class="help-inline" />
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="ServicePrice">Price:</label>
+						<label for="price">Price:</label>
 						<form:input type="text" path="price" class="form-control"
-							id="ServicePrice" />
+							id="price" />
 						<div class="has-error">
 							<form:errors path="price" class="help-inline" />
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="ServiceLocation">Location:</label>
-						<form:input type="text" path="location" class="form-control"
-							id="ServiceLocation" />
+						<label for="location">Location:</label>
+						<form:input  type="text" path="location" class="form-control"
+							id="location" />
 						<div class="has-error">
 							<form:errors path="location" class="help-inline" />
 						</div>
 					</div>
+					
+					<div class="form-group">
+						<label for="imageurl">Image:</label>
+						<form:input type="text" path="image_url" class="form-control"
+							id="imageurl" />
+						<div class="has-error">
+							<form:errors path="image_url" class="help-inline" />
+						</div>
+					</div>
 					<div class="checkbox">
-						<label><input type="checkbox" value="">Active</label>
+						<form:checkbox path="active"/><label>Active</label>
 					</div>
 				</div>
+				
+				<div class="form-group">
+						<label for="image">Image:</label>
+						<form:input type="file" path="file" class="form-control"
+							id="image" />
+						<div class="has-error">
+							<form:errors path="file" class="help-inline" />
+						</div>
+					</div>
+				
+				
 				<div class="modal-footer">
-					<input type="submit" class="btn btn-default" role="button"
-						value="UpdateProduct" />
+					<input type="submit" class="btn btn-default" role="button" />
 				</div>
 			</div>
 
 		</div>
 	</div>
 </form:form>
-<!--  End of Add Modal -->

@@ -7,11 +7,42 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>gotoHotel Maven Webapp</name>
 	<url>http://maven.apache.org</url>
-	<properties>
-		<spring.version>4.3.6.RELEASE</spring.version>
-		<javaee.version>7.0</javaee.version>
-	</properties>
+	
 	<dependencies>
+
+
+		<!--Adding dependency for backend project -->
+		<dependency>
+			<groupId>com.niit</groupId>
+			<artifactId>gotoHotelBackend</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+
+
+		<!--spring web mvc dependency -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>4.3.6.RELEASE</version>
+		</dependency>
+
+
+		<!--Adding dependency for jstl -->
+		<dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+
+	
+		<!--Adding dependency for javaee -->
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+			<version>7.0</version>
+			<scope>provided</scope>
+		</dependency>
+
 
 		<!--Adding dependency for JUNIT Testing -->
 		<dependency>
@@ -21,34 +52,6 @@
 			<scope>test</scope>
 		</dependency>
 
-		<!--Adding dependency for spring framework -->
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-webmvc</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-
-		<!--Adding dependency for javaee -->
-		<dependency>
-			<groupId>javax</groupId>
-			<artifactId>javaee-api</artifactId>
-			<version>${javaee.version}</version>
-			<scope>provided</scope>
-		</dependency>
-
-		<!--Adding dependency for jstl -->
-		<dependency>
-			<groupId>jstl</groupId>
-			<artifactId>jstl</artifactId>
-			<version>1.2</version>
-		</dependency>
-
-		<!--Adding dependency for backend project -->
-		<dependency>
-			<groupId>com.niit</groupId>
-			<artifactId>gotoHotelBackend</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
 
 		<!--Adding dependency for conversion into json -->
 		<dependency>
@@ -56,6 +59,30 @@
 			<artifactId>jackson-databind</artifactId>
 			<version>2.8.7</version>
 		</dependency>
+
+
+				<!--Spring web dependency -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>4.3.6.RELEASE</version>
+		</dependency>
+
+
+		<!-- COMMONS IO -->
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.5</version>
+		</dependency>
+
+		<!-- COMMONS FILEUPLOAD -->
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.3.2</version>
+		</dependency>
+
 
 	</dependencies>
 

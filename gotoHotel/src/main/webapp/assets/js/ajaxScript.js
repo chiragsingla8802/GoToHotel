@@ -8,7 +8,7 @@
    
 		columns : [ 
 		            {data : 'category_id'}, 
-		            {data : 'product_id'}, 
+		            {data : 'pId'}, 
 		            {data : 'location'}, 
 		            {data : 'description'}, 
 		            {data : 'price'}, 

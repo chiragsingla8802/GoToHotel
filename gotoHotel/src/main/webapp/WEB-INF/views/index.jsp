@@ -96,12 +96,6 @@
 		<%@ include file="shared/login.jsp"%>
 	</c:if>
 	
-	<!-- admin content part -->
-	<c:if test="${userClickAdmin == true}">
-		<%@ include file="shared/adminAddProduct.jsp"%>
-	</c:if>
-	
-
 	<!-- product description content part -->
 	<c:if test="${userClickServices == true}">
 		<%@ include file="shared/productDescription.jsp"%>
@@ -120,6 +114,15 @@
 	<!-- category content part -->
 	<c:if test="${userClickCategory == true}">
 		<%@ include file="shared/category.jsp"%>
+	</c:if>
+
+<!-- admin content part -->
+	<c:if test="${userClickAdmin == true}">
+		<%@ include file="shared/adminAddProduct.jsp"%>
+	</c:if>
+
+   <c:if test="${addServicesFailed == true}">
+		<%@ include file="shared/adminAddProduct.jsp"%>
 	</c:if>
 
 

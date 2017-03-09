@@ -22,19 +22,18 @@ public class ServicesDtoTestCase {
 	context.refresh();
 	servicesDao = (ServicesDao)context.getBean("servicesDao");
 	}
-	/*
-	 * @Test
-	public void testAddServices(){
-		servicesDto = new ServicesDto();
-		
-		servicesDto.setProduct_id(1);
-		servicesDto.setPrice(1000);
-		servicesDto.isActive();
-		servicesDto.setLocation("Delhi");
-		servicesDto.setDescription("5 star hotels");
-		
-		assertEquals("Successfully added a product inside the table!",true,servicesDao.add(servicesDto));
-	}*/
+//	 @Test
+//	public void testAddServices(){
+//		servicesDto = new ServicesDto();
+//		
+//		servicesDto.setPId(1);
+//		servicesDto.setPrice(1000);
+//		servicesDto.isActive();
+//		servicesDto.setLocation("Delhi");
+//		servicesDto.setDescription("5 star hotels");
+//		
+//		assertEquals("Successfully added a product inside the table!",true,servicesDao.add(servicesDto));
+//	}
 	
 	/*@Test
 	public void testGetServices(){

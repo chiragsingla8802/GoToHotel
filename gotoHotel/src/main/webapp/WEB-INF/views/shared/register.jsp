@@ -1,84 +1,61 @@
-
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 	<div class="card card-container">
 			<h2 class='register_title text-center'>Register here</h2>
 			<hr>
 			<div class="row main">
 
 				<div class="main-login main-center">
-					<form class="form-horizontal" method="post" action="#">
+					      <table align="center" cellpadding="5" cellspacing="5">
+                                 <form:form commandName="field" method="POST" action="process-form">
 
-						<div class="form-group">
-							<label for="name" class="cols-sm-2 control-label">Your
-								Name</label>
-							<div class="cols-sm-10">
-								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-user fa"
-										aria-hidden="true"></i></span> <input type="text"
-										class="form-control" name="name" id="name"
-										placeholder="Enter your Name" />
-								</div>
-							</div>
-						</div>
+                                           <tr>
+<td>Name</td>
+<td><form:input path="name" />
+</tr>
 
-						<div class="form-group">
-							<label for="email" class="cols-sm-2 control-label">Your
-								Email</label>
-							<div class="cols-sm-10">
-								<div class="input-group">
-									<span class="input-group-addon"><i
-										class="fa fa-envelope fa" aria-hidden="true"></i></span> <input
-										type="text" class="form-control" name="email" id="email"
-										placeholder="Enter your Email" />
-								</div>
-							</div>
-						</div>
+<tr>
+<td>UserId</td>
+<td><form:input path="Userid" />
+</tr>
 
-						<div class="form-group">
-							<label for="username" class="cols-sm-2 control-label">Username</label>
-							<div class="cols-sm-10">
-								<div class="input-group">
-									<span class="input-group-addon"><i
-										class="fa fa-users fa" aria-hidden="true"></i></span> <input
-										type="text" class="form-control" name="username" id="username"
-										placeholder="Enter your Username" />
-								</div>
-							</div>
-						</div>
+<tr>
+<td>Password</td>
+<td><form:password path="password" />
+</tr>
 
-						<div class="form-group">
-							<label for="password" class="cols-sm-2 control-label">Password</label>
-							<div class="cols-sm-10">
-								<div class="input-group">
-									<span class="input-group-addon"><i
-										class="fa fa-lock fa-lg" aria-hidden="true"></i></span> <input
-										type="password" class="form-control" name="password"
-										id="password" placeholder="Enter your Password" />
-								</div>
-							</div>
-						</div>
+<tr>
+<td>Email Id</td>
+<td><form:input path="email" />
+</tr>
 
-						<div class="form-group">
-							<label for="confirm" class="cols-sm-2 control-label">Confirm
-								Password</label>
-							<div class="cols-sm-10">
-								<div class="input-group">
-									<span class="input-group-addon"><i
-										class="fa fa-lock fa-lg" aria-hidden="true"></i></span> <input
-										type="password" class="form-control" name="confirm"
-										id="confirm" placeholder="Confirm your Password" />
-								</div>
-							</div>
-						</div>
+<tr>
+<td>Address</td>
+<td><form:textarea path="address" />
+</tr>
+<tr>
+<td>City</td>
+<td><form:select path="city">
+<form:option value="" label="Please Select" />
+<form:options items="${city}" itemValue="name" itemLabel="name" />
+</form:select><br />
+<font color="red"><form:errors path="city" /></font></td>
+</tr>
 
-						<div class="form-group ">
-							<button type="button"
-								class="btn btn-primary btn-lg btn-block login-button">Register</button>
-						</div>
-
-						<div class="login-register">
-							<a href="login.html">Login</a>
-						</div>
-					</form>
+<tr>
+<td>State</td>
+<td><form:select path="state" items="${state}" /><br />
+<font color="red"><form:errors path="state" /></font></td>
+</tr>
+<tr>
+<td>PhoneNo</td>
+<td><form:input path="phoneNo" />
+</tr>
+<tr>
+<td><input type="submit" name="save" /></td>
+</tr>
+</form:form>
+</table>
+</html>
 				</div>
 			</div>
 		</div>	

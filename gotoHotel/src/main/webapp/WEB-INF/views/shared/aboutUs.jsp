@@ -58,3 +58,4 @@
                 <p>What does this team member to? Keep it short! This is also a great spot for social links!</p>
             </div>
         </div>
+        </div>

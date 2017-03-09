@@ -1,7 +1,7 @@
 CREATE TABLE categoryDto(
 category_id IDENTITY,
 name VARCHAR(50),
-product_id INTEGER,
+pId INTEGER,
 price VARCHAR(50),
 active BOOLEAN
 
@@ -11,7 +11,7 @@ CONSTRAINT pk_categoryDto_category_id PRIMARY KEY (category_id)
 
 CREATE TABLE ServicesDto(
 category_id IDENTITY,
-product_id INTEGER,
+pId INTEGER,
 price INTEGER,
 location VARCHAR(100)
 description VARCHAR(255),

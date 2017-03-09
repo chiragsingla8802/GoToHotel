@@ -10,20 +10,20 @@
           } ,
    
 		columns : [ 
-		            {data : 'category_id'}, 
-		            {data : 'product_id'}, 
+		            {data : 'id'}, 
+		            {data : 'pid'}, 
 		            {data : 'price'}, 
 		            {data : 'location'}, 
 		            {data : 'description'}, 
 		            { data: null ,
                         'mRender': function (data, type, row) {
-                            return '<img src=/gotoHotel/resources/images/'+row.category_id+'.jpg height="50" width="50">';}
+                            return '<img src=/gotoHotel/resources/images/'+row.pid+'.jpg height="50" width="50">';}
 		            },  
                          
             
 		           { data: 'category_id' ,
 		            	'mRender': function (data, type, row) {
-		            	    return '<a class="btn btn-info btn-sm" href=/gotoHotel/showProduct/' +row.category_id + '> view</a>';}
+		            	    return '<a class="btn btn-info btn-sm" href=/gotoHotel/showProduct/' +row.id + '> view</a>';}
 		            } ,
 		            	  
 		            
@@ -79,7 +79,7 @@
 	</div>
 <%-- <c:forEach items="${services}" var="service">
 <a href="#" class="list-group-item">${service.category_id}</a>
-<a href="#" class="list-group-item">${service.product_id}</a>
+<a href="#" class="list-group-item">${service.pId}</a>
 <a href="#" class="list-group-item">${service.price}</a>
 <a href="#" class="list-group-item">${service.location}</a>
 <a href="#" class="list-group-item">${service.description}</a>

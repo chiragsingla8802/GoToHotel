@@ -3,7 +3,6 @@ package com.niit.gotoHotelBackend.daoImpl;
 import java.util.List;
 
 import org.hibernate.SessionFactory;
-import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,9 +26,9 @@ public class CategoryDaoImpl implements CategoryDao {
 		// first static category
 		categoryDto = new CategoryDto();
 		
-		categoryDto.setCategory_id(1);
+		categoryDto.setId(1);
 		categoryDto.setName("5 star");
-		categoryDto.setProduct_id(1);
+		categoryDto.setPId(1);
 		categoryDto.setPrice(1000);
 		categoryDto.isActive();
 		categories.add(categoryDto);
@@ -37,9 +36,9 @@ public class CategoryDaoImpl implements CategoryDao {
 		// second static category
 		categoryDto = new CategoryDto();
 		
-		categoryDto.setCategory_id(2);
+		categoryDto.setId(2);
 		categoryDto.setName("tourist destination hotels");
-		categoryDto.setProduct_id(1);
+		categoryDto.setPId(1);
 		categoryDto.setPrice(2000);
 		categoryDto.isActive();
 		categories.add(categoryDto);
@@ -47,9 +46,9 @@ public class CategoryDaoImpl implements CategoryDao {
 		// third static category
 		categoryDto = new CategoryDto();
 		
-		categoryDto.setCategory_id(3);
+		categoryDto.setId(3);
 		categoryDto.setName("low cost");
-		categoryDto.setProduct_id(1);
+		categoryDto.setPId(1);
 		categoryDto.setPrice(3000);
 		categoryDto.isActive();
 		categories.add(categoryDto);
@@ -57,9 +56,9 @@ public class CategoryDaoImpl implements CategoryDao {
 		// fourth static category
 		categoryDto = new CategoryDto();
 		
-		categoryDto.setCategory_id(4);
+		categoryDto.setId(4);
 		categoryDto.setName("sharing one");
-		categoryDto.setProduct_id(1);
+		categoryDto.setPId(1);
 		categoryDto.setPrice(4000);
 		categoryDto.isActive();
 		categories.add(categoryDto);
@@ -75,12 +74,12 @@ public class CategoryDaoImpl implements CategoryDao {
 
 
 	/*@Override
-	public CategoryDto get(int category_id) {
+	public CategoryDto get(int id) {
 		
 		 *enhanced for loop
 		 *
 		 * for(CategoryDto categoryDto : categories){
-			if(categoryDto.getCategory_id()==category_id)
+			if(categoryDto.getId()==id)
 				return categoryDto;
 		}
 		return null;
@@ -89,15 +88,15 @@ public class CategoryDaoImpl implements CategoryDao {
 	@Override
 	public List<CategoryDto> list() {
 		
-		String selectActiveCategoryDto = "FROM CategoryDto WHERE active = :active ";
+		//String selectActiveCategoryDto = "FROM CategoryDto WHERE active = :active ";
 		
-		Query query = sessionFactory.getCurrentSession().createQuery(selectActiveCategoryDto);
+		/*Query query = sessionFactory.getCurrentSession().createQuery(selectActiveCategoryDto);
 		
 		query.setParameter("active", true);
 		
 		//return sessionFactory.getCurrentSession().createQuery("FROM CategoryDto",CategoryDto.class).getResultList();
-	    return query.getResultList();
-	    		
+	    return query.getResultList();*/
+		return sessionFactory.getCurrentSession().createQuery("FROM CategoryDto",CategoryDto.class).getResultList();		
 	}
 
 
@@ -116,9 +115,9 @@ public class CategoryDaoImpl implements CategoryDao {
 	}
 
 	@Override
-	public CategoryDto get(int category_id) {
+	public CategoryDto get(int id) {
 		// TODO Auto-generated method stub
-		return sessionFactory.getCurrentSession().get(CategoryDto.class,Integer.valueOf(category_id));
+		return sessionFactory.getCurrentSession().get(CategoryDto.class,Integer.valueOf(id));
 	}
 
 

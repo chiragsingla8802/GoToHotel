@@ -11,6 +11,6 @@ public interface CategoryDao
 	boolean delete(CategoryDto categoryDto);
 	
 	List<CategoryDto> list();	
-	CategoryDto get(int category_id);
+	CategoryDto get(int id);
 	
 }

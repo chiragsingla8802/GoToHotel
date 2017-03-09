@@ -100,8 +100,8 @@ public class PageController {
 
 	
 	// mapping for show product page
-	@RequestMapping(value = "/showProduct/{category_id}")
-	public ModelAndView showProduct(@PathVariable("category_id") int id) {
+	@RequestMapping(value = "/showProduct/{id}")
+	public ModelAndView showProduct(@PathVariable("id") int id) {
 		ModelAndView mv = new ModelAndView("index");
 
 		// category or services Dao to fetch the single category

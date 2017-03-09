@@ -26,28 +26,28 @@ public class ServicesDaoImpl implements ServicesDao {
 	 * 
 	 * // first static category servicesDto = new ServicesDto();
 	 * 
-	 * servicesDto.setCategory_id(1); servicesDto.setProduct_id(1);
+	 * servicesDto.setId(1); servicesDto.setPId(1);
 	 * servicesDto.setPrice(1000); servicesDto.isActive();
 	 * servicesDto.setLocation("Delhi"); servicesDto.setDescription(
 	 * "5 star hotels"); services.add(servicesDto);
 	 * 
 	 * // second static category servicesDto = new ServicesDto();
 	 * 
-	 * servicesDto.setCategory_id(2); servicesDto.setProduct_id(1);
+	 * servicesDto.setId(2); servicesDto.setPId(1);
 	 * servicesDto.setPrice(1000); servicesDto.isActive();
 	 * servicesDto.setLocation("Faridabad"); servicesDto.setDescription(
 	 * "5 star hotels"); services.add(servicesDto);
 	 * 
 	 * // third static category servicesDto = new ServicesDto();
 	 * 
-	 * servicesDto.setCategory_id(3); servicesDto.setProduct_id(1);
+	 * servicesDto.setId(3); servicesDto.setPId(1);
 	 * servicesDto.setPrice(1000); servicesDto.isActive();
 	 * servicesDto.setLocation("Mumbai"); servicesDto.setDescription(
 	 * "5 star hotels"); services.add(servicesDto);
 	 * 
 	 * // fourth static category servicesDto = new ServicesDto();
 	 * 
-	 * servicesDto.setCategory_id(4); servicesDto.setProduct_id(1);
+	 * servicesDto.setId(4); servicesDto.setPId(1);
 	 * servicesDto.setPrice(1000); servicesDto.isActive();
 	 * servicesDto.setLocation("Hydrabad"); servicesDto.setDescription(
 	 * "5 star hotels"); services.add(servicesDto); }
@@ -55,12 +55,12 @@ public class ServicesDaoImpl implements ServicesDao {
 	 */
 
 	/*
-	 * @Override public ServicesDto get(int category_id) {
+	 * @Override public ServicesDto get(int id) {
 	 * 
 	 * enhanced for loop
 	 * 
 	 * for(ServicesDto servicesDto : services){
-	 * if(servicesDto.getCategory_id()==category_id) return servicesDto; }
+	 * if(servicesDto.getId()==id) return servicesDto; }
 	 * return null; }
 	 */
 	
@@ -68,16 +68,28 @@ public class ServicesDaoImpl implements ServicesDao {
 	/*
 	 * getting the list of category
 	 */
+	
+	
+	
+	
+	@Override
+	public ServicesDto get(int id) {
+		return sessionFactory.getCurrentSession().get(ServicesDto.class, Integer.valueOf(id));
+	}
+	
+	
+
 	@Override
 	public List<ServicesDto> list() {
-		String selectActiveServicesDto = "FROM ServicesDto WHERE active = :active ";
+	/*	String selectActiveServicesDto = "FROM ServicesDto WHERE active = :active ";
 
 		Query query = sessionFactory.getCurrentSession().createQuery(selectActiveServicesDto);
 
 		query.setParameter("active", true);
 
-		return query.getResultList();
-	}
+		return query.getResultList();*/
+		return sessionFactory.getCurrentSession().createQuery("FROM ServicesDto WHERE active = TRUE").list();
+}
 
 	/*
 	 * adding the single category
@@ -95,20 +107,6 @@ public class ServicesDaoImpl implements ServicesDao {
 		}
 	}
 
-	/*
-	 * get the single category
-	 */
-
-	@Override
-	public ServicesDto get(int category_id) {
-		// TODO Auto-generated method stub
-		return sessionFactory.getCurrentSession().get(ServicesDto.class, Integer.valueOf(category_id));
-	}
-
-	/*
-	 * updating the single category
-	 */
-
 	@Override
 	public boolean update(ServicesDto servicesDto) {
 		try {
@@ -121,12 +119,9 @@ public class ServicesDaoImpl implements ServicesDao {
 		}
 	}
 
-	/*
-	 * deleting the single category
-	 */
 	@Override
-	public boolean delete(ServicesDto servicesDto) {
-
+	public boolean delete(int id) {
+		ServicesDto servicesDto = this.get(id);
 		servicesDto.setActive(false);
 		try {
 			// update the category to database table
@@ -136,6 +131,7 @@ public class ServicesDaoImpl implements ServicesDao {
 			ex.printStackTrace();
 			return false;
 		}
+		
 	}
 
 }

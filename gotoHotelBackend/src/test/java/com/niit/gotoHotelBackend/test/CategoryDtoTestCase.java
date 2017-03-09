@@ -28,7 +28,7 @@ public class CategoryDtoTestCase {
 		categoryDto = new CategoryDto();
 		
 		categoryDto.setName("5 star");
-		categoryDto.setProduct_id(1);
+		categoryDto.setPId(1);
 		categoryDto.setPrice(1000);
 		categoryDto.isActive();
 		

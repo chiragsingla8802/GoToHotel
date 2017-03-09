@@ -3,6 +3,7 @@
 	<name>gotoHotel</name>
 	<comment></comment>
 	<projects>
+		<project>gotoHotelBackend</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

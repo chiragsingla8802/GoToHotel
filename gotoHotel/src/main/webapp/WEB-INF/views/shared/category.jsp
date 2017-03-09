@@ -11,24 +11,24 @@
           } ,
    
 		columns : [ 
-		            {data : 'category_id'}, 
+		            {data : 'id'}, 
 		            {data : 'name'},   
 		                /*  { data: null ,
                         mRender: function (data, type, row) {
-                            return '<img src=/gotoHotel/resources/images/'+row.category_id+'.jpg height="50" width="50">';}
+                            return '<img src=/gotoHotel/resources/images/'+row.id+'.jpg height="50" width="50">';}
 		            }, */  
                          
             
-		           { data: 'category_id' ,
+		           { data: 'pid' ,
 		            	'mRender': function (data, type, row) {
-		            	    return '<a class="btn btn-info btn-sm" href=/gotoHotel/product/' +row.category_id + '> view</a>';}
+		            	    return '<a class="btn btn-info btn-sm" href=/gotoHotel/product/' +row.id + '> view</a>';}
 		            } ,
 		            	  
 		                 
 		            	  
 		            /* {data: null,
 			        	mRender: function ( data, type, row ) {
-			                return '<img src="../webapp/assets/images/'+ row.category_id +'.jpg" height="50" width="50">';
+			                return '<img src="../webapp/assets/images/'+ row.id +'.jpg" height="50" width="50">';
 			            }
 			        } */
 			       /*  {data: null,

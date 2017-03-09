@@ -26,6 +26,11 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 	
+	<!--Bean for view resolver for giving prefix and suffix -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	</bean>
+	
 	
 
 
