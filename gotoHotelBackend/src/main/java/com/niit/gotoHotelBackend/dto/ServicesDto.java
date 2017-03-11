@@ -1,20 +1,13 @@
 package com.niit.gotoHotelBackend.dto;
 
-import java.util.List;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.web.multipart.MultipartFile;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class ServicesDto {
@@ -76,11 +69,6 @@ public class ServicesDto {
 		this.file = file;
 	}
 	
-	
-	
-	@OneToMany(mappedBy = "servicesDto", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
-	    @JsonIgnore
-	    private List<CartItemDto> cartItemList;
 
 
 	
