@@ -92,9 +92,9 @@
 	</c:if>
 
 	<!-- login content part -->
-	<c:if test="${userClickLogin == true}">
+	<%-- <c:if test="${userClickLogin == true}">
 		<%@ include file="shared/login.jsp"%>
-	</c:if>
+	</c:if> --%>
 	
 	<!-- product description content part -->
 	<c:if test="${userClickServices == true}">

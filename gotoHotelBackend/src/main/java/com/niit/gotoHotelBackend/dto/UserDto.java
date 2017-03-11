@@ -1,23 +1,33 @@
 package com.niit.gotoHotelBackend.dto;
 
+import java.io.Serializable;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+
+import org.hibernate.validator.constraints.NotEmpty;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 
 @Entity
-public class UserDto {
-
+public class UserDto implements Serializable{
 
 	
-	private int Userid;
-	public int getUserid() {
-		return Userid;
+	private static final long serialVersionUID = -4153328383519375824L;
+	
+	public int getUserId() {
+		return userId;
 	}
-	public void setUserid(int userid) {
-		Userid = userid;
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 	public String getName() {
 		return name;
@@ -55,32 +65,66 @@ public class UserDto {
 	public void setState(String state) {
 		this.state = state;
 	}
-	public int getPhoneNo() {
+	public String getPhoneNo() {
 		return phoneNo;
 	}
-	public void setPhoneNo(int phoneNo) {
+	public void setPhoneNo(String phoneNo) {
 		this.phoneNo = phoneNo;
 	}
+	public boolean isActive() {
+		return active;
+	}
+	public void setActive(boolean active) {
+		this.active = active;
+	}
+	public String getRole() {
+		return role;
+	}
+	public void setRole(String role) {
+		this.role = role;
+	}
 	
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 	
-	
-	/**
-	 * private static fields
-	 * 
-	 * *
-	 * used for user registeration form
-	 * 
-	 * **/
-	
-	
-	
+	public CartDto getCartDto() {
+		return cartDto;
+	}
+	public void setCartDto(CartDto cartDto) {
+		this.cartDto = cartDto;
+	}
+
+	/*
+	 * private fields
+	 * */
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int userId;
+	@NotEmpty
 	private String name;
+	@NotEmpty
 	private String password ;
+	@NotEmpty
 	private String email;
+	@NotEmpty
 	private String address;
+	@NotEmpty
 	private String city;
+	@NotEmpty
 	private String state;
-	private int phoneNo;
+	@NotEmpty
+	private String phoneNo;
+	private boolean active=true;
+	@NotEmpty
+	private String role;
+
+	 @OneToOne(mappedBy = "userDto", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	    private CartDto cartDto;
+
+	
+
+	
+
+	
 }

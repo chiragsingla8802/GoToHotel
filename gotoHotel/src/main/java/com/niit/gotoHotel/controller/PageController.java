@@ -1,11 +1,12 @@
 package com.niit.gotoHotel.controller;
 
-import javax.swing.JOptionPane;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.niit.gotoHotelBackend.dao.CategoryDao;
@@ -22,6 +23,7 @@ public class PageController {
 	// mapping for index page
 	@RequestMapping(value = { "/", "/home", "/index" })
 	public ModelAndView index() {
+	//	System.out.println(prin.getName());
 		ModelAndView mv = new ModelAndView("index");
 		mv.addObject("title", "Home");
 		mv.addObject("userClickHome", true);
@@ -47,12 +49,13 @@ public class PageController {
 	}
 
 	// mapping for login page
-	@RequestMapping(value = "/login")
-	public ModelAndView login() {
-		ModelAndView mv = new ModelAndView("index");
-		mv.addObject("title", "Login");
-		mv.addObject("userClickLogin", true);
-		return mv;
+	@GetMapping("/login")
+	public String login(@RequestParam(value = "error", required = false)String error, Model model) {
+	if(error!=null) {
+	model.addAttribute("error","Authentication Failed - Invalid credentials!");
+	}
+	model.addAttribute("title", "Login");
+	return "login";
 	}
 
 	// mapping for product description page
@@ -82,12 +85,13 @@ public class PageController {
 	// mapping for register page
 	@RequestMapping(value = "/register")
 	public ModelAndView register() {
-		ModelAndView mv = new ModelAndView("index");
+		ModelAndView mv = new ModelAndView("register");
 		mv.addObject("title", "Register");
 		mv.addObject("userClickRegister", true);
 		return mv;
 	}
-
+	
+	
 	/*// mapping for admin page
 		@RequestMapping(value = "/admin")
 		public ModelAndView admin() {

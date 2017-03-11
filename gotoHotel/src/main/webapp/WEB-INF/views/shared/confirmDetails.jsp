@@ -76,7 +76,7 @@
 
 
 	<div class="card card-container">
-		<h2 class='register_title text-center'>Register here</h2>
+		<h2 class='register_title text-center'>Confirm your details</h2>
 		<hr>
 		<div class="row main">
 
@@ -87,29 +87,30 @@
 						<tr>
 							<td>Name</td>
 							<td><form:input path="name" placeholder="Enter your Name "
-									class="form-control" /><font color="red"> <form:errors path="name" /></font> 
+									class="form-control" /><font color="red"> <form:errors
+										path="name" /></font>
 						</tr>
 
 
 						<tr>
 							<td>Password</td>
 							<td><form:password path="password"
-									placeholder="Enter your password." class="form-control" /> <font color="red"><form:errors
-									path="password" /></font> 
+									placeholder="Enter your password." class="form-control" /><font
+								color="red"> <form:errors path="password" /></font>
 						</tr>
 
 						<tr>
 							<td>Email Id</td>
 							<td><form:input path="email"
 									placeholder="Enter your Email Address" class="form-control" />
-								<font color="red"><form:errors path="email" /></font> 
+								<font color="red"><form:errors path="email" /></font>
 						</tr>
 
 						<tr>
 							<td>Address</td>
 							<td><form:textarea path="address"
-									placeholder="Enter your Address" class="form-control" /> <font color="red"><form:errors
-									path="address" /></font> 
+									placeholder="Enter your Address" class="form-control" /><font
+								color="red"> <form:errors path="address" /></font>
 						</tr>
 						<tr>
 							<td>City</td>
@@ -122,9 +123,8 @@
 									<form:option value="Banglore" label="Banglore" />
 									<form:option value="Haridwar" label="Haridwar" />
 									<form:option value="Goa" label="Goa" />
-								
-								</form:select> <font color="red"> <form:errors path="city" /></font> 
-							</td>
+								</form:select> <br /> <font color="red"> <form:errors path="city" />
+							</font></td>
 						</tr>
 
 						<tr>
@@ -137,10 +137,9 @@
 									<form:option value="Maharashtra" label="Maharashtra" />
 									<form:option value="punjab" label="punjab" />
 									<form:option value="Uttrakhand" label="Uttrakhand" />
-									<form:option value="Goa" label="Goa" /></form:select>
-									<font color="red">
-								 <form:errors path="state" /></font> 
-								</td>
+									<form:option value="Goa" label="Goa" />
+
+								</form:select><font color="red"> <form:errors path="state" /></font></td>
 						</tr>
 
 						<tr>
@@ -151,17 +150,20 @@
 									<form:option value="ADMIN" label="ADMIN" />
 									<form:option value="CUSTOMER" label="CUSTOMER" />
 									<form:option value="SUPPLIER" label="SUPPLIER" />
-									</form:select> <font color="red"><form:errors path="role" /></font></td>
+
+								</form:select><font color="red"> <form:errors path="role" /></font></td>
 						</tr>
 
 						<tr>
 							<td>PhoneNo</td>
 							<td><form:input path="phoneNo"
-									placeholder="Enter Contact no.." class="form-control" /> <font color="red"><form:errors
-									path="phoneNo" /></font>
+									placeholder="Enter Contact no.." class="form-control" /><font
+								color="red"> <form:errors path="phoneNo" /></font>
 						</tr>
 						<tr>
-							<td><input type="submit" name="_eventId_submit" /></td>
+							<td><input type="submit" name="_eventId_submit1"
+								value="Submit" /></td>
+							<td><input type="submit" name="_eventId_edit" value="Edit" /></td>
 						</tr>
 					</form:form>
 				</table>

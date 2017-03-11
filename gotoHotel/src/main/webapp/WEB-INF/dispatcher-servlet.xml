@@ -1,5 +1,5 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:wf="http://www.springframework.org/schema/webflow-config"
 	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="
     http://www.springframework.org/schema/beans
@@ -8,30 +8,64 @@
     http://www.springframework.org/schema/context/spring-context.xsd
     http://www.springframework.org/schema/mvc
     http://www.springframework.org/schema/mvc/spring-mvc.xsd
+    http://www.springframework.org/schema/webflow-config
+    http://www.springframework.org/schema/webflow-config/spring-webflow-config.xsd
     ">
-	
-	<!--Scanning base package for all controlling operations -->
-	<context:component-scan base-package="com.niit.gotoHotel.controller" />
-	<context:component-scan base-package="com.niit.gotoHotelBackend" />
-	
-	<!--Loading static resources -->
-	<mvc:annotation-driven />
-	<mvc:resources location="/assets/" mapping="/resources/**" />
-	
-	
+
+
+
+
 	<!--Bean for view resolver for giving prefix and suffix -->
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/views/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
-	
+
 	<!--Bean for view resolver for giving prefix and suffix -->
 	<bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 	</bean>
+
+	<!-- WebFlow Configuration -->
+
+	<wf:flow-executor id="flowExecutor" />
+
+	<wf:flow-registry id="flowRegistry"
+		flow-builder-services="flowBuilderServices" base-path="/WEB-INF">
+
+		<wf:flow-location id="register" path="/membership-flow.xml" />
+
+	</wf:flow-registry>
+
+	<wf:flow-builder-services id="flowBuilderServices"
+		view-factory-creator="viewFactoryCreator" />
+
+	<bean id="viewFactoryCreator"
+		class="org.springframework.webflow.mvc.builder.MvcViewFactoryCreator">
+		<property name="viewResolvers">
+			<list>
+				<ref bean="viewResolver" />
+			</list>
+		</property>
+	</bean>
+
+	<bean class="org.springframework.webflow.mvc.servlet.FlowHandlerAdapter">
+		<property name="flowExecutor" ref="flowExecutor" />
+	</bean>
+
+	<bean class="org.springframework.webflow.mvc.servlet.FlowHandlerMapping">
+		<property name="flowRegistry" ref="flowRegistry" />
+		<property name="order" value="0" />
+	</bean>
+
+	 <bean id="validator"
+		class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" />
+
 	
-	
+	<wf:flow-builder-services id="flowBuilderServices"
+		view-factory-creator="viewFactoryCreator" validator="validator" /> 
+
 
 
 </beans>

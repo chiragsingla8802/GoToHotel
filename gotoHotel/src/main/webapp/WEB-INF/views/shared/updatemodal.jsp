@@ -2,6 +2,8 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!-- Add Modal -->
+
+<div class="container">
 <form:form method="POST" modelAttribute="servicesDto" enctype="multipart/form-data" class="form-horizontal" action="${contextRoot}/admin/save/services">
 
 	<div class="modal fade" id="updatemodal" role="dialog">
@@ -45,6 +47,7 @@
 						</div>
 					</div>
 					
+					
 					<div class="form-group">
 						<label for="imageurl">Image:</label>
 						<form:input type="text" path="image_url" class="form-control"
@@ -53,26 +56,33 @@
 							<form:errors path="image_url" class="help-inline" />
 						</div>
 					</div>
-					<div class="checkbox">
-						<form:checkbox path="active"/><label>Active</label>
+				<div class="checkbox">
+						<label><input type="checkbox" >Active</label>
 					</div>
-				</div>
-				
-				<div class="form-group">
-						<label for="image">Image:</label>
+					
+					<div class="form-group">
+						<label for="Image">Image:</label>
 						<form:input type="file" path="file" class="form-control"
-							id="image" />
+							id="Image" />
 						<div class="has-error">
 							<form:errors path="file" class="help-inline" />
 						</div>
 					</div>
-				
-				
+					
 				<div class="modal-footer">
 					<input type="submit" class="btn btn-default" role="button" />
 				</div>
+				</div>
+				
+				
+				
+				
 			</div>
 
 		</div>
 	</div>
+
+	
+	
 </form:form>
+</div>

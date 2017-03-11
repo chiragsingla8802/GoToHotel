@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/webflow
+                          http://www.springframework.org/schema/webflow/spring-webflow.xsd">
+
+
+	<var name="userDto" class="com.niit.gotoHotelBackend.dto.UserDto" />
+
+
+	<!-- <on-start> <evaluate expression="registerController.initFlow()" result="flowScope.userDto"></evaluate> 
+		</on-start> -->
+
+	<view-state id="start" view="shared/register" model="userDto">
+		<transition on="submit" to="confirmDetails1" />
+	</view-state>
+
+	<view-state id="confirmDetails1" view="shared/confirmDetails"
+		model="userDto">
+		<transition on="submit1" to="saveReg" />
+		<transition on="edit" to="start" />
+	</view-state>
+
+	<action-state id="saveReg">
+		<evaluate expression="registerController.addUser(userDto)"></evaluate>
+			<transition on="true" to="saveRegDetails" />
+		<transition on="false" to="start" />
+	</action-state>
+
+
+	<end-state id="exit" view="shared/register.jsp" />
+	<end-state id="saveRegDetails" view="shared/success" />
+	<end-state id="toHome" view="externalRedirect:contextRelative:/" />
+
+	<global-transitions>
+		<transition on="home" to="toHome" />
+		<transition on="error" to="toException" />
+	</global-transitions>
+
+</flow>

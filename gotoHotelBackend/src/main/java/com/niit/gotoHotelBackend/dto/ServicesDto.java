@@ -1,12 +1,20 @@
 package com.niit.gotoHotelBackend.dto;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.web.multipart.MultipartFile;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class ServicesDto {
@@ -69,17 +77,30 @@ public class ServicesDto {
 	}
 	
 	
+	
+	@OneToMany(mappedBy = "servicesDto", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+	    @JsonIgnore
+	    private List<CartItemDto> cartItemList;
+
+
+	
 	/*
 	 * private fields
 	 */
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
+	@NotEmpty
 	private String pid;
+	@NotEmpty
 	private double price;
+	@NotEmpty
 	private String location;
+	@NotEmpty
 	private String description;
+	@NotEmpty
 	private String image_url;	
+	@NotEmpty
 	private boolean active = true;
 	
 	@Transient

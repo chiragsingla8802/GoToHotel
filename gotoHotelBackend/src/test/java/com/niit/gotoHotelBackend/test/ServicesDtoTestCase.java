@@ -57,14 +57,14 @@ public class ServicesDtoTestCase {
 		servicesDto = new ServicesDto();
 		servicesDto = servicesDao.get(33);
 		
-		assertEquals("Successfully delete a single category in the table!",true,servicesDao.delete(servicesDto));
-}*/
-	
-	@Test
+		assertEquals("Successfully delete a single category in the table!",true,servicesDao.delete(33));
+}
+	*/
+	/*@Test
 	public void testListServices(){
 		
 		assertEquals("Successfully fetched a list of services from the table!",1,servicesDao.list().size());
 	}
-	
+	*/
 	
 }

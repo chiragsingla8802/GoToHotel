@@ -12,21 +12,21 @@
 		<!-- Wrapper for slides -->
 		<div class="carousel-inner" role="listbox">
 			<div class="item active">
-				<img src="${images}/16.jpg" alt="hotel taj" width="1150" height="250">
+				<img src="${images}/car1.jpg" alt="hotel taj" width="1800" height="1200">
 			</div>
 
 			<div class="item">
-				<img src="${images}/17.jpg" alt="hotel savai mansingh" width="1150"
-					height="250">
+				<img src="${images}/car2.jpg" alt="hotel savai mansingh" width="1800"
+					height="1200">
 			</div>
 
 			<div class="item">
-				<img src="${images}/18.jpg" alt="the lalit" width="1150" height="250">
+				<img src="${images}/car3.jpg" alt="the lalit" width="1800" height="1200">
 			</div>
 
 			<div class="item">
-				<img src="${images}/16.jpg" alt="saffron square" width="1150"
-					height="250">
+				<img src="${images}/car4.jpg" alt="saffron square" width="1800"
+					height="1200">
 			</div>
 		</div>
 
@@ -51,13 +51,12 @@
 
 		<hr class="featurette-divider">
 
-		First Featurette
+
 		<div class="featurette" id="about">
 			<img class="featurette-image img-circle img-responsive pull-right"
 				src="${images}/13.jpg">
 			<h2 class="featurette-heading">
-				This First Heading <span class="text-muted">Will Catch Your
-					Eye</span>
+				Find your ideal hotel <span class="text-muted">for the best price</span>
 			</h2>
 			<p class="lead">Donec ullamcorper nulla non metus auctor
 				fringilla. Vestibulum id ligula porta felis euismod semper. Praesent
@@ -73,8 +72,8 @@
 			<img class="featurette-image img-circle img-responsive pull-left"
 				src="${images}/14.jpg">
 			<h2 class="featurette-heading">
-				The Second Heading <span class="text-muted">Is Pretty Cool
-					Too.</span>
+				Trending Destinations <span class="text-muted">Browse top selling destinations for attractive hotel rates and deals
+</span>
 			</h2>
 			<p class="lead">Donec ullamcorper nulla non metus auctor
 				fringilla. Vestibulum id ligula porta felis euismod semper. Praesent
@@ -89,7 +88,7 @@
 			<img class="featurette-image img-circle img-responsive pull-right"
 				src="${images}/15.jpg">
 			<h2 class="featurette-heading">
-				The Third Heading <span class="text-muted">Will Seal the
+				Up to 70% off On Domestic Hotels <span class="text-muted">Will Seal the
 					Deal.</span>
 			</h2>
 			<p class="lead">Donec ullamcorper nulla non metus auctor
