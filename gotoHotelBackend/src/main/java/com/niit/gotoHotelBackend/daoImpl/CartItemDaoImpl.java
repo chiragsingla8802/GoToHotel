@@ -3,14 +3,15 @@ package com.niit.gotoHotelBackend.daoImpl;
 import java.util.List;
 
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.gotoHotelBackend.dao.CartItemDao;
+import com.niit.gotoHotelBackend.dto.Cart;
 import com.niit.gotoHotelBackend.dto.CartItem;
-import com.niit.gotoHotelBackend.dto.UserDto;
-@Repository("userDao")
+@Repository("CartItemDao")
 @Transactional
 public class CartItemDaoImpl implements CartItemDao{
 	@Autowired
@@ -28,8 +29,8 @@ public class CartItemDaoImpl implements CartItemDao{
 	}
 
 	@Override
-	public boolean delete(int id) {
-		CartItem cartItem = this.getUserDetail(id);
+	public boolean delete(CartItem cartItem) {
+		
 		try {
 			// update the category to database table
 			sessionFactory.getCurrentSession().delete(cartItem);
@@ -53,18 +54,28 @@ public class CartItemDaoImpl implements CartItemDao{
 	}
 
 	@Override
-	public List<CartItem> userlist() {
+	public List<CartItem> userlist(Cart cart) {
 		return sessionFactory.getCurrentSession().createQuery("FROM CartItem WHERE active = TRUE").list();
 	}
 
 	@Override
-	public CartItem getUserDetail(int userId) {
-		return sessionFactory.getCurrentSession().get(CartItem.class, Integer.valueOf(userId)); 
+	public CartItem getUserDetail(int cartItemId) {
+		return sessionFactory.getCurrentSession().get(CartItem.class, Integer.valueOf(cartItemId)); 
 	}
 
 	@Override
 	public CartItem getUserDetailByName(String name) {
 		return sessionFactory.getCurrentSession().get(CartItem.class, String.valueOf(name)); 
 	}
+	
+	
+	public CartItem getCartItemByProductId(int id){
+
+		Query query = sessionFactory.getCurrentSession().createQuery("from CartItem where id ='"+id+"'");
+		return (CartItem) query.uniqueResult();
+ 
+    }
+
+	
 
 }

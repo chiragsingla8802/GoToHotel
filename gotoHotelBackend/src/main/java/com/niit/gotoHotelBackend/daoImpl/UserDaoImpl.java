@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.gotoHotelBackend.dao.UserDao;
+import com.niit.gotoHotelBackend.dto.Cart;
 import com.niit.gotoHotelBackend.dto.UserDto;
 
 @Repository("userDao")
@@ -25,7 +26,10 @@ public class UserDaoImpl implements UserDao {
 	public boolean add(UserDto userDto) {
 		try {
 			// add the category to database table
-			sessionFactory.getCurrentSession().save(userDto);
+			Cart cart = new Cart();
+			cart.setUserDto(userDto);
+			sessionFactory.getCurrentSession().save(cart);
+			sessionFactory.getCurrentSession().persist(userDto);
 			return true;
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -34,8 +38,8 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public boolean delete(int id) {
-		UserDto userDto = this.getUserDetail(id);
+	public boolean delete(int userId) {
+		UserDto userDto = this.getUserDetail(userId);
 		userDto.setActive(false);
 		try {
 			// update the category to database table
@@ -71,6 +75,6 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public UserDto getUserDetailByName(String name) {
-		return sessionFactory.getCurrentSession().get(UserDto.class, String.valueOf(name)); 
+		return sessionFactory.getCurrentSession().createQuery("from UserDto where email = '"+name+"'",UserDto.class).getSingleResult(); 
 	}
 }

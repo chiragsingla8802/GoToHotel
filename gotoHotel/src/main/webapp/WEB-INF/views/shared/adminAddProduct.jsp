@@ -21,6 +21,10 @@
 									{
 										data : 'location'
 									},
+									
+									{
+										data : 'serviceQuantity'
+						            },
 									{
 										data : 'description'
 									},
@@ -98,6 +102,7 @@
 			<th>Product ID</th>
 			<th>Price</th>
 			<th>Location</th>
+			<th>Rooms Available</th>
 			<th>Description</th>
 			<th>Image</th>
 			<th>edit</th>
@@ -110,6 +115,7 @@
 			<th>Product ID</th>
 			<th>Price</th>
 			<th>Location</th>
+			<th>Rooms Available</th>
 			<th>Description</th>
 			<th>Image</th>
 			<th>edit</th>

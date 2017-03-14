@@ -49,8 +49,14 @@
 
 	<!-- Bootstrap Core JavaScript -->
 	<script src="${js}/bootstrap.min.js"></script>
-	
-	
+	<tr>
+	<td>
+	<a href="${contextRoot}/">go to HOME</a>
+</td>
+<td>
+	<a href="${contextRoot}/login">Login now!</a>
+</td>
+	</tr>
 	<div class="card card-container">
 		<h1>Congratulation!</h1>
 		<br>
@@ -61,5 +67,6 @@
 		<h3>your userId:<br>${userDto.email}</h3>
 	</div>
 	
+
 </body>
 </html>

@@ -23,8 +23,8 @@
 
 	<action-state id="saveReg">
 		<evaluate expression="registerController.addUser(userDto)"></evaluate>
-			<transition on="true" to="saveRegDetails" />
-		<transition on="false" to="start" />
+			<transition on="yes" to="saveRegDetails" />
+		<transition on="no" to="start" />
 	</action-state>
 
 

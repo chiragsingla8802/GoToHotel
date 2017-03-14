@@ -6,10 +6,13 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import com.niit.gotoHotelBackend.dao.CartDao;
 import com.niit.gotoHotelBackend.dao.CartItemDao;
 import com.niit.gotoHotelBackend.dao.ServicesDao;
 import com.niit.gotoHotelBackend.dao.UserDao;
 import com.niit.gotoHotelBackend.dto.Cart;
+import com.niit.gotoHotelBackend.dto.CartItem;
+import com.niit.gotoHotelBackend.dto.ServicesDto;
 import com.niit.gotoHotelBackend.dto.UserDto;
 
 public class CartItemTestCase {
@@ -18,7 +21,7 @@ public class CartItemTestCase {
 	private static AnnotationConfigApplicationContext context;
 	
 	private static CartItemDao cartItemDao;
-
+	private static CartDao cartDao;
 	private static UserDao userDao;
 
 	private static ServicesDao servicesDao;
@@ -28,79 +31,79 @@ public class CartItemTestCase {
 	@BeforeClass
 	public static void init() {
 		context = new AnnotationConfigApplicationContext();
-		context.scan("net.kzn.shoppingbackend");
+		context.scan("com.niit.gotoHotelBackend");
 		context.refresh();
-		cartItemDao = (CartItemDao)context.getBean("cartItemDao");
+		cartItemDao = (CartItemDao)context.getBean("CartItemDao");
+		cartDao=(CartDao)context.getBean("CartDao");
 		userDao = (UserDao)context.getBean("userDao");
 		servicesDao = (ServicesDao)context.getBean("servicesDao");
 
 	}
 
-	
-	@Test
+	/*@Test
 	public void testListCartItem(){
 		
 		// get the user
-		UserDto userDto = userDao.getUserDetail(2);
+		UserDto userDto = userDao.getUserDetail(1);
 		// get the cart
-		Cart cart = userDto.getCart();
+		Cart cart = cartDao.getUserDetail(7);
 		// get the cartItems
 		
 		assertEquals("List CartItem fetched Successfully!",0,cartItemDao.userlist().size());
 		
-	}
+	}*/
 
 	
 	// Adding a new cartItem
-/*	@Test
+/*@Test
 	public void testAddCartItem() {
 		
 		// get the user
-		User user = userDAO.get(2);
+		UserDto userDto = userDao.getUserDetail(1);
 		// get the cart
-		Cart cart = user.getCart();
+		Cart cart = userDto.getCart();
 
 		// get the product
-		Product product = productDAO.get(1);
+		ServicesDto servicesDto = servicesDao.get(70);
 		
 		CartItem cartItem = new CartItem();
 		cartItem.setCart(cart);
-		cartItem.setProduct(product);
-		cartItem.setQuantity(2);
-		cartItem.setTotalPrice(product.getUnitPrice() * cartItem.getQuantity());
+		cartItem.setServicesDto(servicesDto);
+		cartItem.setQuantity(1);
+		cartItem.setTotalPrice(servicesDto.getPrice() * cartItem.getQuantity());
 	
 		cart.setGrandTotal(cart.getGrandTotal() + cartItem.getTotalPrice());
 		cart.setCartItemsCount(cart.getCartItemsCount() + 1);
-		assertEquals("Successfully added the cart item!",true, cartItemDAO.add(cartItem));
+		assertEquals("Successfully added the cart item!",true, cartItemDao.add(cartItem));
 		
 		
-	}
-*/	
+	}*/
+
 
 	// updating the existing cart item
 	/*@Test
 	public void testUpdateCartItem() {
 				
-		CartItem cartItem = cartItemDAO.get(7);
+		CartItem cartItem = cartItemDao.getUserDetail(1);
 		
 		Cart cart = cartItem.getCart();
 		
-		Product product = cartItem.getProduct();
+		ServicesDto servicesDto = cartItem.getServicesDto();
 		
 		int oldQuantity = cartItem.getQuantity();
 
 		cartItem.setQuantity(cartItem.getQuantity() + 1);
 		
-		cartItem.setTotalPrice(product.getUnitPrice() * cartItem.getQuantity());
+		cartItem.setTotalPrice(servicesDto.getPrice() * cartItem.getQuantity());
 		
-		cart.setGrandTotal(cart.getGrandTotal() + (cartItem.getQuantity() - oldQuantity) * product.getUnitPrice());
+		cart.setGrandTotal(cart.getGrandTotal() + (cartItem.getQuantity() - oldQuantity) * servicesDto.getPrice());
 		
-		assertEquals("Successfully updated the cart item!",true, cartItemDAO.update(cartItem));*/
+		assertEquals("Successfully updated the cart item!",true, cartItemDao.update(cartItem));
 
 		//assertEquals("Successfully updated the cart item!",true, cartItemDAO.updateCart(cart));
 
 		
-	}
+	}*/}
 
 	
 

@@ -8,6 +8,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 import org.hibernate.validator.constraints.NotEmpty;
@@ -133,7 +134,10 @@ public class UserDto implements Serializable {
 	@NotEmpty
 	private String role;
 
-	@OneToOne(cascade = CascadeType.ALL, mappedBy = "useDtor", fetch = FetchType.EAGER)
+	@OneToOne(cascade = CascadeType.ALL, mappedBy = "userDto", fetch = FetchType.EAGER)
+	@JoinColumn(name = "cartId")
 	private Cart cart;
 
+	
 }
+

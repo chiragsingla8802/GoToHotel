@@ -14,6 +14,7 @@
 		            {data : 'pid'}, 
 		            {data : 'price'}, 
 		            {data : 'location'}, 
+		            {data : 'serviceQuantity'},
 		            {data : 'description'}, 
 		            { data: null ,
                         'mRender': function (data, type, row) {
@@ -27,10 +28,10 @@
 		            } ,
 		            	  
 		            
-		              { data: null ,
+		              /* { data: null ,
 		            	'mRender': function (data, type, row) {
 		            	    return '<a class="btn btn-info btn-sm" href=/gotoHotel/product' + row[0] + '>' + 'add to cart' + '</a>';}
-		            }      
+		            }  */     
 		            	  
 		            /* {data: null,
 			        	mRender: function ( data, type, row ) {
@@ -57,9 +58,10 @@
 					<th>Product ID</th>
 					<th>Price</th>
 					<th>Location</th>
+					<th>Rooms Available</th>
 					<th>Description</th>
 					<th>Image </th>
-					<th></th>
+					<!-- <th></th> -->
 					<th></th>
 				</tr>
 			</thead>
@@ -69,9 +71,10 @@
 					<th>Product ID</th>					
 					<th>Price</th>
 					<th>Location</th>
+					<th>Rooms Available</th>
 					<th>Description</th>
 					<th>Image</th>
-					<th></th>
+					<!-- <th></th> -->
 					<th></th>
 				</tr>
 			</tfoot>

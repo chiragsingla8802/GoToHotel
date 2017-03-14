@@ -47,6 +47,8 @@ public class PageController {
 		mv.addObject("userClickContact", true);
 		return mv;
 	}
+	
+	
 
 	// mapping for login page
 	@GetMapping("/login")

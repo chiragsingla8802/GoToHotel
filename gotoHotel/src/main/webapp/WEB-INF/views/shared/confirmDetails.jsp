@@ -92,13 +92,13 @@
 						</tr>
 
 
-						<tr>
+						 <tr>
 							<td>Password</td>
 							<td><form:password path="password"
 									placeholder="Enter your password." class="form-control" /><font
 								color="red"> <form:errors path="password" /></font>
 						</tr>
-
+ 
 						<tr>
 							<td>Email Id</td>
 							<td><form:input path="email"

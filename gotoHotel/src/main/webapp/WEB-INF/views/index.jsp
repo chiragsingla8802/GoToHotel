@@ -110,6 +110,12 @@
 	<c:if test="${userClickShowProduct == true}">
 		<%@ include file="shared/showProduct.jsp"%>
 	</c:if>
+	
+	
+	<!-- show product content part -->
+	<c:if test="${userClickCart == true}">
+		<%@ include file="shared/cart.jsp"%>
+	</c:if>
 
 	<!-- category content part -->
 	<c:if test="${userClickCategory == true}">

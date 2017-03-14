@@ -1,13 +1,21 @@
 package com.niit.gotoHotelBackend.dto;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Transient;
+import javax.validation.constraints.AssertTrue;
 
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.web.multipart.MultipartFile;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class ServicesDto {
@@ -69,6 +77,21 @@ public class ServicesDto {
 		this.file = file;
 	}
 	
+	public int getServiceQuantity() {
+		return serviceQuantity;
+	}
+	public void setServiceQuantity(int serviceQuantity) {
+		this.serviceQuantity = serviceQuantity;
+	}
+	public List<CartItem> getCartItemList() {
+		return cartItemList;
+	}
+	public void setCartItemList(List<CartItem> cartItemList) {
+		this.cartItemList = cartItemList;
+	}
+
+
+
 
 
 	
@@ -78,21 +101,25 @@ public class ServicesDto {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
-	@NotEmpty
+	
 	private String pid;
-	@NotEmpty
 	private double price;
-	@NotEmpty
+	
 	private String location;
-	@NotEmpty
+	
 	private String description;
-	@NotEmpty
+	
+	private int serviceQuantity;
+	
 	private String image_url;	
-	@NotEmpty
+	
 	private boolean active = true;
 	
 	@Transient
 	MultipartFile file;
 	
-	
+	 @OneToMany(mappedBy = "servicesDto", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	    @JsonIgnore
+	    private List<CartItem> cartItemList;
+
 }

@@ -2,6 +2,7 @@ package com.niit.gotoHotelBackend.daoImpl;
 
 import java.util.List;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -9,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.gotoHotelBackend.dao.CartDao;
 import com.niit.gotoHotelBackend.dto.Cart;
-@Repository("userDao")
+@Repository("CartDao")
 @Transactional
 public class CartDaoImpl implements CartDao {
 	@Autowired
@@ -45,13 +46,13 @@ public class CartDaoImpl implements CartDao {
 	}
 
 	@Override
-	public Cart getUserDetail(int id) {
+	public Cart getUserDetail(int cartId) {
 		
-		return sessionFactory.getCurrentSession().get(Cart.class, Integer.valueOf(id)); 
+		return sessionFactory.getCurrentSession().get(Cart.class, Integer.valueOf(cartId)); 
 	}
 
 	@Override
 	public Cart getUserDetailByid(int userId) {
-		return sessionFactory.getCurrentSession().createQuery("FROM Cart WHERE userid ="+ userId).getSingleResult();
-}
-}
+		Session session = sessionFactory.getCurrentSession();
+        return (Cart) session.get(Cart.class, userId);
+}}

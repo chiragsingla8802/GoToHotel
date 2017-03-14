@@ -28,13 +28,16 @@
 				</li>
 				<li id="contactUs"><a href="${contextRoot}/contactUs">Contact</a>
 				</li>
-				<li id="register"><a href="${contextRoot}/register">Register</a>
-				</li>
+				
 				<security:authorize access="isAnonymous()">
+				<li id="register"><a href="${contextRoot}/register">Register</a></li>
+				
 				<li id="login"><a href="${contextRoot}/login">Login</a></li>
 				</security:authorize>
 				<security:authorize access="isAuthenticated()">
 				<li id="logout"><a href="${contextRoot}/logout">Logout</a></li>
+				<li id="cart" ><a href="${contextRoot}/customer/cart/cartItem"><span
+						class="glyphicon glyphicon-shopping-cart"></span>My Bookings</a></li>
 				</security:authorize>
 
 			</ul>

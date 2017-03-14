@@ -6,7 +6,7 @@ import com.niit.gotoHotelBackend.dto.Cart;
 
 public interface CartDao {
 
-	Cart getUserDetail(int id);
+	Cart getUserDetail(int cartId);
 	List<Cart> userlist();
 	boolean add(Cart cart);
 	boolean update(Cart cart);

@@ -7,10 +7,9 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
-
-import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 public class Cart implements Serializable {
@@ -18,19 +17,45 @@ public class Cart implements Serializable {
 	private static final long serialVersionUID = 8696961903109270296L;
 
 	@Id
-	@GeneratedValue(generator = "newGenerator")
-	@GenericGenerator(name="newGenerator",strategy="foreign",parameters={ @parameter(value="UserDto",name="property")})
-	private int id;
+	@GeneratedValue
+	private int cartId;
 
-	@OneToOne(cascade = CascadeType.PERSIST)
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name="userId")
 	private UserDto userDto;
 
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "cart")
 	private List<CartItem> cartItems;
 
+	public List<CartItem> getCartItems() {
+		return cartItems;
+	}
+
+	public void setCartItems(List<CartItem> cartItems) {
+		this.cartItems = cartItems;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	public UserDto getUserDto() {
+		return userDto;
+	}
+
 	private int cartItemsCount;
 
 	private double grandTotal;
+	
+	private boolean active=true;
+
+	public boolean isActive() {
+		return active;
+	}
+
+	public void setActive(boolean active) {
+		this.active = active;
+	}
 
 	public int getCartItemsCount() {
 		return cartItemsCount;
@@ -40,12 +65,12 @@ public class Cart implements Serializable {
 		this.cartItemsCount = cartItemsCount;
 	}
 
-	public int getId() {
-		return id;
+	public int getCartId() {
+		return cartId;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setCartId(int cartId) {
+		this.cartId =cartId;
 	}
 
 	public UserDto getUser() {
@@ -66,7 +91,9 @@ public class Cart implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Cart [id=" + id + ", cartItemsCount=" + cartItemsCount + ", grandTotal=" + grandTotal + "]";
+		return "Cart [cartId=" + cartId + ", cartItemsCount=" + cartItemsCount + ", grandTotal=" + grandTotal + "]";
 	}
+
+	
 
 }
