@@ -9,28 +9,29 @@
   <div class="row">
   <div class="col-md-12">
   <table class="table table-responsive table-sripped">
-  	<tr>
-  		<td colspan="2" style="color:darkgrey">Hotel</td>
-  		<td style="color:darkgrey">No. of Room</td>
-  		<td style="color:darkgrey">Price</td>
-  		<td style="color:darkgrey">Sub Total</td>
+  <div>	<tr>
+  		<td colspan="2">Hotel</td>
+  		<td>No. of Room</td>
+  		<td>Price</td>
+  		<td>Sub Total</td>
+  		<!-- <td>Add</td> -->
   		
-  	</tr>
-  	<c:forEach items="${cartItem}" var="ci">
+  	</tr></div>
+  	<div><c:forEach items="${cartItem}" var="ci">
   	<tr>
-  	<td>${ci.servicesDto.description}</td>
+  	<td colspan="2">${ci.servicesDto.description}</td>
   	<td>${ci.quantity}</td>
   	<td>${ci.servicesDto.price}</td>
   	<td>${ci.totalPrice}</td>
-  	<td><a href="${contextRoot}/customer/cart/delete/${ci.servicesDto.id}" class="btn btn-danger btn-lg">cancel booking</a></td> 
-  	
-  	<td><a href="${contextRoot}/customer/cart/update/${ci.servicesDto.id}" class="btn btn-danger btn-lg">add more room</a></td>
-  	
-  	</tr>
+   	<%--  <td><a href="${contextRoot}/customer/cart/delete/cartItem/${ci.servicesDto.id}" class="btn btn-danger btn-lg">cancel booking</a></td> 
+  	  
+  	  <td><a href="${contextRoot}/customer/cart/update/${ci.servicesDto.id}" class="btn btn-danger btn-lg">add more room</a></td>
+  	 --%>
+  	</tr></div>
   	</c:forEach>
   </table>
   </div>
-  </div>
+  </div>   
    
    <div class="row">
   <div class="col-md-12">
@@ -45,7 +46,7 @@
   </tr>
   <tr>
   <td><a href="${contextRoot}/productDescription" class="btn btn-danger btn-lg">Book More</a> </td>
-  <td><a href="billing" class="btn btn-danger btn-lg">Pay Now!</button></td>
+  <td><a href="${contextRoot}/customer/cart/payment" class="btn btn-danger btn-lg">Pay Now!</button></td>
   </tr>
   </table> 
   </div>

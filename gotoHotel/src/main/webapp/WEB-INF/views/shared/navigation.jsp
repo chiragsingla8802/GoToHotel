@@ -24,8 +24,8 @@
 				<li id="aboutUs"><a href="${contextRoot}/aboutUs">About</a></li>
 				<li id="productDescription"><a
 					href="${contextRoot}/productDescription">Services</a></li>
-				<li id="category"><a href="${contextRoot}/category">Category</a>
-				</li>
+				<%-- <li id="category"><a href="${contextRoot}/category">Category</a>
+				</li> --%>
 				<li id="contactUs"><a href="${contextRoot}/contactUs">Contact</a>
 				</li>
 				
@@ -36,8 +36,7 @@
 				</security:authorize>
 				<security:authorize access="isAuthenticated()">
 				<li id="logout"><a href="${contextRoot}/logout">Logout</a></li>
-				<li id="cart" ><a href="${contextRoot}/customer/cart/cartItem"><span
-						class="glyphicon glyphicon-shopping-cart"></span>My Bookings</a></li>
+				<%--  <li id="cart" ><a href="${contextRoot}/customer/cart/${cartItem.cartItemId}">My Bookings</a></li>  --%>
 				</security:authorize>
 
 			</ul>

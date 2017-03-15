@@ -111,8 +111,18 @@
 		<%@ include file="shared/showProduct.jsp"%>
 	</c:if>
 	
+	<!-- payment Details content part -->
+	<c:if test="${userClickPayment == true}">
+		<%@ include file="shared/paymentDetails.jsp"%>
+	</c:if>
 	
-	<!-- show product content part -->
+	<!-- final invoice content part -->
+	<c:if test="${userClickFinalInvoice == true}">
+		<%@ include file="shared/finalInvoice.jsp"%>
+	</c:if>
+	
+	
+	<!-- cart content part -->
 	<c:if test="${userClickCart == true}">
 		<%@ include file="shared/cart.jsp"%>
 	</c:if>

@@ -60,7 +60,7 @@ public class CartItemDaoImpl implements CartItemDao{
 
 	@Override
 	public CartItem getUserDetail(int cartItemId) {
-		return sessionFactory.getCurrentSession().get(CartItem.class, Integer.valueOf(cartItemId)); 
+		return sessionFactory.getCurrentSession().createQuery("FROM CartItem WHERE cartItemId ='"+cartItemId+"'", CartItem.class).getSingleResult(); 
 	}
 
 	@Override

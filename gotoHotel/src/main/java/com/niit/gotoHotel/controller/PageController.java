@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.niit.gotoHotelBackend.dao.CartItemDao;
 import com.niit.gotoHotelBackend.dao.CategoryDao;
 import com.niit.gotoHotelBackend.dao.ServicesDao;
 
@@ -19,6 +20,9 @@ public class PageController {
 	private ServicesDao servicesDao;
 	@Autowired
 	private CategoryDao categoryDao;
+	
+	/*@Autowired
+	private CartItemDao cartItemDao;*/
 
 	// mapping for index page
 	@RequestMapping(value = { "/", "/home", "/index" })
@@ -27,6 +31,7 @@ public class PageController {
 		ModelAndView mv = new ModelAndView("index");
 		mv.addObject("title", "Home");
 		mv.addObject("userClickHome", true);
+	//	mv.addObject("cartItem", cartItemDao.userlist(cart));
 		return mv;
 	}
 

@@ -4,6 +4,37 @@
       xsi:schemaLocation="http://www.springframework.org/schema/webflow 
       http://www.springframework.org/schema/webflow/spring-webflow.xsd">
       
+    <var name="payment" class="com.niit.gotoHotelBackend.dto.PaymentDto" />
+
+
+	<!-- <on-start> <evaluate expression="registerController.initFlow()" result="flowScope.userDto"></evaluate> 
+		</on-start> -->
+
+	<view-state id="start" view="shared/paymentDetails" model="payment">
+		<transition on="submit" to="paymentSuccess" />
+	</view-state>
+
+	
+
+	<!-- <action-state id="finalInvoice">
+		<evaluate expression="paymentController.addPayment(paymentDto)"></evaluate>
+			<transition on="yes" to="savePayDetails" />
+		<transition on="no" to="start" />
+	</action-state> -->
+	
+	<!-- <view-state id="savePayDetails" view="shared/finalInvoice" model="payment">
+		<transition on="submit" to="success" />
+	</view-state>
+ -->
+
+	<end-state id="exit" view="shared/paymentDetails.jsp" />
+	<end-state id="paymentSuccess" view="shared/paymentSuccess" />
+	<end-state id="toHome" view="externalRedirect:contextRelative:/" />
+
+	<global-transitions>
+		<transition on="home" to="toHome" />
+		<transition on="error" to="toException" />
+	</global-transitions>
     
     
     

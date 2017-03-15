@@ -147,9 +147,9 @@
 							<td><form:select path="role" placeholder="Enter your role"
 									class="form-control">
 									<form:option value="" label="Please Select" />
-									<form:option value="ADMIN" label="ADMIN" />
+									<%-- <form:option value="ADMIN" label="ADMIN" /> --%>
 									<form:option value="CUSTOMER" label="CUSTOMER" />
-									<form:option value="SUPPLIER" label="SUPPLIER" />
+									<%-- <form:option value="SUPPLIER" label="SUPPLIER" /> --%>
 
 								</form:select><font color="red"> <form:errors path="role" /></font></td>
 						</tr>

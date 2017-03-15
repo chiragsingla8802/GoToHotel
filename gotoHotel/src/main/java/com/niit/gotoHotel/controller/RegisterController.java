@@ -5,7 +5,6 @@ import org.springframework.stereotype.Component;
 
 import com.niit.gotoHotelBackend.dao.CartDao;
 import com.niit.gotoHotelBackend.dao.UserDao;
-import com.niit.gotoHotelBackend.dto.Cart;
 import com.niit.gotoHotelBackend.dto.UserDto;
 @Component
 public class RegisterController {

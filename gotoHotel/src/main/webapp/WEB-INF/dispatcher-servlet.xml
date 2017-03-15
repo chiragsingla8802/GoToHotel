@@ -22,7 +22,7 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 
-	<!--Bean for view resolver for giving prefix and suffix -->
+	<!--Bean for multipart resolver -->
 	<bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 	</bean>
@@ -35,6 +35,8 @@
 		flow-builder-services="flowBuilderServices" base-path="/WEB-INF">
 
 		<wf:flow-location id="register" path="/membership-flow.xml" />
+		
+		<!-- <wf:flow-location id="register" path="/payment-flow.xml" /> -->
 
 	</wf:flow-registry>
 

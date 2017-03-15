@@ -9,9 +9,7 @@ public interface CartItemDao {
 
 	boolean add(CartItem cartItem);
 	boolean delete(CartItem cartItem);
-	boolean update(CartItem cartItem);
-
-
+	boolean update(CartItem cartItem); 
 	List<CartItem> userlist(Cart cart);	
 	CartItem getUserDetail(int userId);
 	CartItem getUserDetailByName(String name);
